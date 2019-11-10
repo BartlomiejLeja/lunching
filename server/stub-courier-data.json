@@ -1,6 +1,7 @@
 { 
-  "restaurants":[ 
+  "restaurant": 
      { 
+        "id" : 1234,
         "restaurantName":"Mocked restaurant",
         "lunchSpots":[ 
            { 
@@ -141,5 +142,4 @@
            }
         ]
      }
-  ]
 }

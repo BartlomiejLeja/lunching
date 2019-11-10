@@ -1,0 +1,25 @@
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+  <div class="example-box" *ngFor="let lunchSpot of lunchSpots" cdkDrag>
+    <!-- {{movie}}
+    <button>test</button> -->
+    <div class="flex-container">
+      <div>
+        <h4>
+         {{ lunchSpot.company}}
+        </h4>
+        <p>
+          {{ lunchSpot.address}}
+        </p>
+        <p>
+          Lunching spot: {{ lunchSpot.name}}
+        </p>
+      </div>
+      <div>
+        <h4>
+          Dostawa: {{ lunchSpot.deliveryTime}}
+         </h4>
+      </div>
+    </div>
+  
+  </div>
+</div>
