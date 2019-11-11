@@ -4,7 +4,6 @@ import { PendingDeliveryComponent } from './pending-delivery/pending-delivery.co
 import { ProvidedDeliveryComponent } from './provided-delivery/provided-delivery.component';
 import { DeliveryListComponent } from './delivery-list/delivery-list.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-import { DeliveryService } from './shared/services/delivery.service';
 
 @NgModule({
   declarations: [PendingDeliveryComponent, ProvidedDeliveryComponent, DeliveryListComponent],
@@ -12,6 +11,6 @@ import { DeliveryService } from './shared/services/delivery.service';
     CommonModule,
     DragDropModule
   ],
-  providers: [DeliveryService]
+  providers: []
 })
 export class DeliveryModule { }

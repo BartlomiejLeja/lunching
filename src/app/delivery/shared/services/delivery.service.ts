@@ -5,7 +5,9 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Restaurant } from '../models/restaurant.model';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class DeliveryService {
     constructor(private http: HttpClient) {}
 

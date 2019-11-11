@@ -14,7 +14,7 @@ export class FooterComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
   }
 
   public navigateTo(route: string): void {
