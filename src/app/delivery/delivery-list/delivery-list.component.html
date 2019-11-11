@@ -1,8 +1,8 @@
 <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-  <div class="example-box" *ngFor="let lunchSpot of lunchSpots" cdkDrag>
+  <div class="example-box" [ngStyle]="{'background': colorOfRow}" *ngFor="let lunchSpot of lunchSpots" cdkDrag>
     <!-- {{movie}}
     <button>test</button> -->
-    <div class="flex-container">
+    <div class="flex-container" >
       <div>
         <h4>
          {{ lunchSpot.company}}
