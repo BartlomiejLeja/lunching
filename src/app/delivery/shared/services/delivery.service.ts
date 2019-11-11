@@ -9,7 +9,8 @@ import { Restaurant } from '../models/restaurant.model';
 export class DeliveryService {
     constructor(private http: HttpClient) {}
 
-    public getRestaurants() : Observable<Restaurant> {
-        return this.http.get<Restaurant>(environment.apiUrl)
+    public getRestaurants(): Observable<Restaurant> {
+        return this.http.get<Restaurant>(environment.apiUrl);
     }
 }
+

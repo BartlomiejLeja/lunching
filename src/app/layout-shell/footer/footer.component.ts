@@ -10,7 +10,7 @@ import {filter} from 'rxjs/operators';
 })
 export class FooterComponent implements OnInit {
 
-  @Input() public activeRoute  :string;
+  @Input() public activeRoute: string;
 
   constructor(private router: Router) { }
 

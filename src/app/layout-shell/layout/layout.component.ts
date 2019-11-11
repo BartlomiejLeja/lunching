@@ -10,7 +10,7 @@ import {filter} from 'rxjs/operators';
 export class LayoutComponent implements OnInit {
 
   public activeRoute = this.router.url;
-  constructor(private router:Router ) { }
+  constructor(private router: Router ) { }
 
   ngOnInit() {
 
@@ -20,7 +20,7 @@ export class LayoutComponent implements OnInit {
   )
       .subscribe((event: NavigationEnd) => {
           console.log(event);
-          this.activeRoute = event.url
+          this.activeRoute = event.url;
       });
   }
 

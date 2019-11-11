@@ -8,8 +8,8 @@ import { Restaurant } from '../shared/models/restaurant.model';
   styleUrls: ['./delivery-list.component.css']
 })
 export class DeliveryListComponent implements OnInit {
-  @Input() public lunchSpots : Restaurant[];
-  @Input() public colorOfRow : string;
+  @Input() public lunchSpots: Restaurant[];
+  @Input() public colorOfRow: string;
   constructor() { }
 
   ngOnInit() {

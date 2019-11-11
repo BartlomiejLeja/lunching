@@ -11,7 +11,7 @@ import { DeliveryStatus } from '../shared/enums/delivery-status.enum';
   styleUrls: ['./provided-delivery.component.css']
 })
 export class ProvidedDeliveryComponent implements OnInit {
-  public lunchSpots : LunchSpot[];
+  public lunchSpots: LunchSpot[];
   public rowColor = 'rgba(187, 187,187)';
   private DeliveryStatus = DeliveryStatus;
 
@@ -21,13 +21,13 @@ export class ProvidedDeliveryComponent implements OnInit {
   ngOnInit() {
     this.deliveryService.getRestaurants()
     .pipe(
-      map((r: Restaurant)=> r.lunchSpots.filter(ls=>ls.status === this.DeliveryStatus.Delivered))
+      map((r: Restaurant) => r.lunchSpots.filter(ls => ls.status === this.DeliveryStatus.Delivered))
     )
     .subscribe(
-      (ls: LunchSpot[])=> {
-        this.lunchSpots = ls
-      } 
-    )
+      (ls: LunchSpot[]) => {
+        this.lunchSpots = ls;
+      }
+    );
   }
 
 }

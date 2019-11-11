@@ -13,7 +13,7 @@ export class ToolbarComponent implements OnInit {
   public ngOnInit(): void {
   }
 
-  public titleCreator(): string{
+  public titleCreator(): string {
     return this.activeRoute === '/provideddelivery' ? 'Dostarczone' : 'Oczekujące';
   }
 }

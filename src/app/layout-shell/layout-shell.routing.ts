@@ -8,7 +8,7 @@ const routes: Routes = [
     {
         path: '',
         component: LayoutComponent,
-        children :[
+        children : [
             {
                 path: '',
                 pathMatch: 'full',
@@ -16,15 +16,15 @@ const routes: Routes = [
             },
             {
                 path: 'pendingdelivery',
-                component: PendingDeliveryComponent 
+                component: PendingDeliveryComponent
             },
             {
                 path: 'provideddelivery',
-                component: ProvidedDeliveryComponent 
+                component: ProvidedDeliveryComponent
             },
         ]
     }
-]
+];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
