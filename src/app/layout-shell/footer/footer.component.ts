@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { ActivatedRoute,  NavigationEnd } from '@angular/router';
+import {filter} from 'rxjs/operators';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  @Input() public activeRoute  :string;
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  public navigateTo(route: string): void {
+    this.router.navigate([route]);
+  }
 }

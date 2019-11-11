@@ -1,0 +1,25 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 40px;
+  }
+       
+.navigation-icon {
+    font-size: 30px;
+    cursor:pointer;
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+}
+
+#right {
+    margin-left: 6vw;
+}
+
+#left {
+    margin-right: 6vw;
+}

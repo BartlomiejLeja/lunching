@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
 
+  @Input() public activeRoute: string;
   constructor() { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
   }
 
+  public titleCreator(): string{
+    return this.activeRoute === '/provideddelivery' ? 'Dostarczone' : 'Oczekujące';
+  }
 }

@@ -10,6 +10,11 @@ const routes: Routes = [
         component: LayoutComponent,
         children :[
             {
+                path: '',
+                pathMatch: 'full',
+                redirectTo: 'pendingdelivery'
+            },
+            {
                 path: 'pendingdelivery',
                 component: PendingDeliveryComponent 
             },
@@ -19,7 +24,6 @@ const routes: Routes = [
             },
         ]
     }
-
 ]
 
 @NgModule({

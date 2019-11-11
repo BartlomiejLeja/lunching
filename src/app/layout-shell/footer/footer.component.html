@@ -1,3 +1,20 @@
-<p>
-  footer works!
-</p>
+
+<div class="flex-container">
+  <div class ="icon-container" >
+      <mat-icon 
+        id="left"
+        class = 'navigation-icon' 
+        [ngStyle]="{'color':activeRoute === '/pendingdelivery' ? 'green' : 'black'}" 
+        (click)="navigateTo('pendingdelivery')"  
+        aria-hidden="false" 
+        aria-label="Example home icon">access_time</mat-icon>
+  </div>
+  <div class ="icon-container">
+      <mat-icon 
+        id="right" 
+        [ngStyle]="{'color':activeRoute === '/provideddelivery' ? 'green' : 'black'}" 
+        class = 'navigation-icon' (click)="navigateTo('provideddelivery')"  
+        aria-hidden="false" 
+        aria-label="Example home icon">thumb_up_alt</mat-icon>
+  </div>
+</div>

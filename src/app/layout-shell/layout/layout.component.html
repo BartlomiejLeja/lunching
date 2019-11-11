@@ -1,2 +1,17 @@
-<app-toolbar></app-toolbar>
-<router-outlet></router-outlet>
+<div class="container" >
+  <header class="header">
+    <app-toolbar 
+      class="fixed-header"
+      [activeRoute] = "activeRoute" ></app-toolbar>
+  </header>
+  <div class="content">
+  <router-outlet></router-outlet>
+</div>
+  <footer class="footer" >
+    <app-footer
+    [activeRoute] = "activeRoute"
+    ></app-footer>
+  </footer>
+</div>
+
+
