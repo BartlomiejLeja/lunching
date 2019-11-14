@@ -1,5 +1,5 @@
 <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-  <div class="example-box" [style.background]="colorOfRow" *ngFor="let lunchSpot of lunchSpots" cdkDrag>
+  <div class="example-box" [style.background]="colorOfRow" *ngFor="let lunchSpot of lunchSpots$ | async" cdkDrag>
     <div class="flex-container" >
       <div>
         <h4>
@@ -16,8 +16,22 @@
         <h4>
           Dostawa: {{ lunchSpot.deliveryTime}}
          </h4>
+         <button mat-icon-button [matMenuTriggerFor]="menu" 
+         (click) = "selectedDelivery(lunchSpot)" 
+         aria-label="Example icon-button with a menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
       </div>
     </div>
   
   </div>
 </div>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item *ngIf="deliveryStatus === 'UNDELIVERED'" (click)="changeDeliveryStatus(lunchSpot)">
+    <span>Zmień status na dostarczone</span>
+  </button>
+  <button mat-menu-item *ngIf="deliveryStatus === 'DELIVERED'" (click)="changeDeliveryStatus(lunchSpot)">
+    <span>Zmień status na oczekujące</span>
+  </button>
+</mat-menu>

@@ -1,6 +1,8 @@
 <app-delivery-list 
-  [lunchSpots] = "lunchSpots"
+  [lunchSpots$]= "pendingDeliverySpots"
   [colorOfRow] = rowColor
+  [deliveryStatus] = DeliveryStatus.Undelivered
+  (changeDeliveryStatusOutput) = "changeDeliveryStatus($event)"
 >
 </app-delivery-list>
 

@@ -1,18 +1,13 @@
 import { Injectable } from '@angular/core';
-
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
 import { Restaurant } from '../models/restaurant.model';
+import { EntityCollectionServiceBase, EntityCollectionServiceElementsFactory } from '@ngrx/data';
 
 @Injectable({
     providedIn: 'root',
 })
-export class DeliveryService {
-    constructor(private http: HttpClient) {}
-
-    public getRestaurants(): Observable<Restaurant> {
-        return this.http.get<Restaurant>(environment.apiUrl);
-    }
+export class DeliveryService extends EntityCollectionServiceBase<Restaurant> {
+    constructor(serviceElementsFactory: EntityCollectionServiceElementsFactory) {
+        super('Restaurant', serviceElementsFactory);
+      }
 }
 

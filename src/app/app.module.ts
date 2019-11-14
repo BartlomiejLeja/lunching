@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutShellModule } from './layout-shell/layout-shell.module';
 import { HttpClientModule } from '@angular/common/http';
+import { EntityDataModule } from '@ngrx/data';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { fakeBackendProvider } from './fake-backend/fake-restaurant-backend-interceptor';
 
 @NgModule({
   declarations: [
@@ -16,8 +19,12 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     LayoutShellModule,
     HttpClientModule,
+    StoreDevtoolsModule.instrument({
+      name : 'Template app DevTool',
+      maxAge: 25
+    }),
   ],
-  providers: [],
+  providers: [ fakeBackendProvider ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

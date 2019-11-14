@@ -2,8 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DeliveryService } from '../shared/services/delivery.service';
 import { Restaurant } from '../shared/models/restaurant.model';
 import { LunchSpot } from '../shared/models/lunch-spot.model';
-import { map } from 'rxjs/operators';
+import { mergeMap, first } from 'rxjs/operators';
 import { DeliveryStatus } from '../shared/enums/delivery-status.enum';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-pending-delivery',
@@ -15,18 +16,37 @@ export class PendingDeliveryComponent implements OnInit {
   public rowColor = 'rgba(244, 67,54)';
 
   private DeliveryStatus = DeliveryStatus;
+  public pendingDeliverySpots: Observable<LunchSpot[]>;
+  private restaurants$: Observable<Restaurant[]>;
 
-  constructor(private deliveryService: DeliveryService) { }
+  constructor(
+    private deliveryService: DeliveryService
+    ) {
+      this.restaurants$ = this.deliveryService.entities$;
+     }
 
   public ngOnInit(): void {
-    this.deliveryService.getRestaurants()
-    .pipe(
-      map((r: Restaurant) => r.lunchSpots.filter(ls => ls.status === this.DeliveryStatus.Undelivered))
+    this.deliveryService.getAll();
+
+    this.pendingDeliverySpots = this.restaurants$.pipe(
+     mergeMap((r: Restaurant[]) => 
+        r.map(r=>r.lunchSpots.filter((ls:LunchSpot) => 
+     ls.status === DeliveryStatus.Undelivered))),
     )
-    .subscribe(
-      (ls: LunchSpot[]) => {
-        this.lunchSpots = ls;
-      }
-    );
+  }
+
+  public changeDeliveryStatus(lunchSpot: LunchSpot) :void {
+    let restarantToUpdate: Restaurant;
+    this.restaurants$.pipe(
+      mergeMap((r: Restaurant[]) => 
+        r.filter(r=> r.lunchSpots.some((ls=>ls.lunchSpotId===lunchSpot.lunchSpotId))
+     )),first()
+     ).subscribe((r: Restaurant) =>{
+      restarantToUpdate = r;
+      lunchSpot.status = DeliveryStatus.Delivered
+      restarantToUpdate.lunchSpots.map(ls => lunchSpot )
+      this.deliveryService.update(restarantToUpdate);
+     }
+     )
   }
 }
