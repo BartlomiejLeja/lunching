@@ -14,6 +14,6 @@ export class ToolbarComponent implements OnInit {
   }
 
   public titleCreator(): string {
-    return this.activeRoute === '/provideddelivery' ? 'Dostarczone' : 'Oczekujące';
+    return this.activeRoute === '/provideddelivery' ? 'Delivered' : 'Waiting for delivery';
   }
 }

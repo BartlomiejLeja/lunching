@@ -9,7 +9,7 @@
           {{ lunchSpot.address}}
         </p>
         <p>
-          Lunching spot: {{ lunchSpot.name}}
+          Delivery spot: {{ lunchSpot.name}}
         </p>
       </div>
       <div>
@@ -29,9 +29,9 @@
 
 <mat-menu #menu="matMenu">
   <button mat-menu-item *ngIf="deliveryStatus === 'UNDELIVERED'" (click)="changeDeliveryStatus(lunchSpot)">
-    <span>Zmień status na dostarczone</span>
+    <span>Change status for delivered</span>
   </button>
   <button mat-menu-item *ngIf="deliveryStatus === 'DELIVERED'" (click)="changeDeliveryStatus(lunchSpot)">
-    <span>Zmień status na oczekujące</span>
+    <span>Change status for waiting for delivery</span>
   </button>
 </mat-menu>
