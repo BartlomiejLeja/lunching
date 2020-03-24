@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 import { ActivatedRoute,  NavigationEnd } from '@angular/router';
 import {filter} from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
-import { AddLunchSpotDialogComponent } from 'src/app/delivery/add-lunch-spot-dialog/add-lunch-spot-dialog.component';
-import { DeliveryService } from 'src/app/delivery/shared/services/delivery.service';
+import { AddLunchSpotDialogComponent } from '../../../app/delivery/add-lunch-spot-dialog/add-lunch-spot-dialog.component';
 
 @Component({
   selector: 'app-footer',
