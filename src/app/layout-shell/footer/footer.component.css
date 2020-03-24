@@ -16,10 +16,10 @@
     align-items: center;
 }
 
-#right {
-    margin-left: 6vw;
+#left {
+    margin-right: 2vw;
 }
 
-#left {
-    margin-right: 6vw;
+#add {
+    margin-right: 2vw;
 }

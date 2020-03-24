@@ -15,6 +15,7 @@ export class DeliveryListComponent implements OnInit {
   @Input() public colorOfRow: string;
   @Input() public deliveryStatus: DeliveryStatus;
   @Output() public changeDeliveryStatusOutput = new EventEmitter<LunchSpot>()
+  @Output() public deleteLunchSpotOutput = new EventEmitter<LunchSpot>()
   
   public lunchSpots: LunchSpot[];
   private selectedDeliveryItem: LunchSpot;
@@ -36,7 +37,12 @@ export class DeliveryListComponent implements OnInit {
   public selectedDelivery(selectedDelivery: LunchSpot){
     this.selectedDeliveryItem = selectedDelivery;
   }
+
   public changeDeliveryStatus() : void{
     this.changeDeliveryStatusOutput.emit(this.selectedDeliveryItem);
+  }
+
+  public deleteLunchSpot(selectedDelivery: LunchSpot) : void {
+    this.deleteLunchSpotOutput.emit(this.selectedDeliveryItem);
   }
 }

@@ -1,5 +1,5 @@
 export class LunchSpot {
-    public lunchSpotId: number;
+    public id: number;
     public name: string;
     public status: string;
     public address: string;

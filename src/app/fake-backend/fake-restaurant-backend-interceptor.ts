@@ -18,10 +18,14 @@ export class FakeRestaurantInterceptor implements HttpInterceptor {
 
          function handleRoute() {
             switch (true) {
-                case url.endsWith('/restaurants/') && method === 'GET':
-                    return getRestaurants();
-                case url.match('/restaurant') && method === 'PUT':
+                case url.endsWith('/lunchspots/') && method === 'GET':
+                    return getLunchSpots();
+                case url.match('/lunchspot') && method === 'PUT':
                     return changeDeliveryStatus();
+                case url.match('/lunchspot') && method === 'DELETE':
+                    return deleteLunchSpots();
+                case url.match('/lunchspot') && method === 'POST':
+                    return addLunchSpots();
                 default:
                     // pass through any requests not handled above
                     return next.handle(request);
@@ -29,19 +33,39 @@ export class FakeRestaurantInterceptor implements HttpInterceptor {
         }
 
          // route functions
-         function getRestaurants() {
-            let lands = JSON.parse(localStorage.getItem("restaurant") || "[]");
-            return ok(lands);
+         function getLunchSpots() {
+            let lunchSpots = JSON.parse(localStorage.getItem("lunchSpots") || "[]");
+            return ok(lunchSpots);
+        }
+
+        function deleteLunchSpots() {
+            const lunchSpotId = url.split("/")[2];
+            let lunchSpots = JSON.parse(localStorage.getItem("lunchSpots") || "[]");
+            
+            let objIndex = lunchSpots.findIndex((obj => obj.id == lunchSpotId));
+
+            lunchSpots.splice(objIndex,1);
+            localStorage.setItem("lunchSpots", JSON.stringify(lunchSpots));
+            return ok();
+        }
+
+        function addLunchSpots() {
+            const lunchSpotBody = body
+            let lunchSpots = JSON.parse(localStorage.getItem("lunchSpots") || "[]");
+            
+            lunchSpots.push(lunchSpotBody)
+            localStorage.setItem("lunchSpots", JSON.stringify(lunchSpots));
+            return ok(lunchSpotBody);
         }
 
         function changeDeliveryStatus(){
-            const restaurantBody = body
-            let restaurants = JSON.parse(localStorage.getItem("restaurant") || "[]");
+            const lunchSpotBody = body
+            let lunchSpots = JSON.parse(localStorage.getItem("lunchSpots") || "[]");
             
-            let objIndex = restaurants.findIndex((obj => obj.id == restaurantBody.id));
+            let objIndex = lunchSpots.findIndex((obj => obj.id == lunchSpotBody.id));
 
-            restaurants[objIndex].lunchSpots = restaurantBody.lunchSpots;
-            localStorage.setItem("restaurant", JSON.stringify(restaurants));
+            lunchSpots[objIndex] = lunchSpotBody;
+            localStorage.setItem("lunchSpots", JSON.stringify(lunchSpots));
             return ok();
         }
     

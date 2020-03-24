@@ -14,7 +14,7 @@
       </div>
       <div>
         <h4>
-          Dostawa: {{ lunchSpot.deliveryTime}}
+          Delivery: {{ lunchSpot.deliveryTime}}
          </h4>
          <button mat-icon-button [matMenuTriggerFor]="menu" 
          (click) = "selectedDelivery(lunchSpot)" 
@@ -33,5 +33,8 @@
   </button>
   <button mat-menu-item *ngIf="deliveryStatus === 'DELIVERED'" (click)="changeDeliveryStatus(lunchSpot)">
     <span>Change status for waiting for delivery</span>
+  </button>
+  <button mat-menu-item (click)="deleteLunchSpot(lunchSpot)">
+    <span>Delete lunch spot</span>
   </button>
 </mat-menu>

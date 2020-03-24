@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Add Lunch Spot with pending delivery</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Write name of lunch spot</mat-label>
+    <input matInput [(ngModel)]="lunchSpotDialogData.name">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Write address of lunch spot</mat-label>
+    <input matInput [(ngModel)]="lunchSpotDialogData.address">
+   </mat-form-field>
+   <mat-form-field>
+    <mat-label>Write company </mat-label>
+    <input matInput [(ngModel)]="lunchSpotDialogData.company">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Write delivery time </mat-label>
+        <input matInput [(ngModel)]="lunchSpotDialogData.deliveryTime">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button cdkFocusInitial (click)="addNewLunchSpot()">Ok</button>
+</div>

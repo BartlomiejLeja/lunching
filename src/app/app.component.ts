@@ -9,13 +9,10 @@ export class AppComponent {
   title = 'ngrx-data';
 
   constructor(){
-    let restaurant =  [
-      { 
-        "id" : 1234,
-        "restaurantName":"Mocked restaurant",
-        "lunchSpots":[ 
+    let lunchSpots =  [
+      
           { 
-             "lunchSpotId":106852,
+             "id":106852,
              "name":"garaż",
              "status":"UNDELIVERED",
              "address":"street 1",
@@ -23,7 +20,7 @@ export class AppComponent {
              "deliveryTime":"12:30"
           },
           { 
-             "lunchSpotId":106862,
+             "id":106862,
              "name":"stara portiernia, skrzydło prawe",
              "status":"UNDELIVERED",
              "address":"street 2",
@@ -31,7 +28,7 @@ export class AppComponent {
              "deliveryTime":"12:30"
           },
           { 
-             "lunchSpotId":106859,
+             "id":106859,
              "name":"stara portiernia, skrzydło prawe",
              "status":"DELIVERED",
              "address":"street 3",
@@ -39,7 +36,7 @@ export class AppComponent {
              "deliveryTime":"12:30"
           },
           { 
-             "lunchSpotId":106857,
+             "id":106857,
              "name":"stara portiernia, skrzydło prawe",
              "status":"DELIVERED",
              "address":"street 4",
@@ -47,7 +44,7 @@ export class AppComponent {
              "deliveryTime":"12:30"
           },
           { 
-             "lunchSpotId":106860,
+             "id":106860,
              "name":"garaż",
              "status":"UNDELIVERED",
              "address":"street 5",
@@ -55,7 +52,7 @@ export class AppComponent {
              "deliveryTime":"12:30"
           },
           { 
-             "lunchSpotId":106868,
+             "id":106868,
              "name":"company 6, kuchnia",
              "status":"UNDELIVERED",
              "address":"street 6",
@@ -63,7 +60,7 @@ export class AppComponent {
              "deliveryTime":"12:30"
           },
           { 
-             "lunchSpotId":106903,
+             "id":106903,
              "name":"stara portiernia, skrzydło prawe",
              "status":"DELIVERED",
              "address":"street 7",
@@ -71,7 +68,7 @@ export class AppComponent {
              "deliveryTime":"12:30"
           },
           { 
-             "lunchSpotId":106855,
+             "id":106855,
              "name":"garaż",
              "status":"UNDELIVERED",
              "address":"street 8",
@@ -79,7 +76,7 @@ export class AppComponent {
              "deliveryTime":"12:30"
           },
           { 
-             "lunchSpotId":106906,
+             "id":106906,
              "name":"Amusys, kuchnia",
              "status":"UNDELIVERED",
              "address":"street 9",
@@ -87,7 +84,7 @@ export class AppComponent {
              "deliveryTime":"12:30"
           },
           { 
-             "lunchSpotId":106916,
+             "id":106916,
              "name":"Kuchnia w firmie company 10, 3 piętro, H2",
              "status":"UNDELIVERED",
              "address":"street 10",
@@ -95,7 +92,7 @@ export class AppComponent {
              "deliveryTime":"13:30"
           },
           { 
-             "lunchSpotId":107068,
+             "id":107068,
              "name":"siedziba firmy ",
              "status":"UNDELIVERED",
              "address":"street 11",
@@ -103,7 +100,7 @@ export class AppComponent {
              "deliveryTime":"13:30"
           },
           { 
-             "lunchSpotId":107013,
+             "id":107013,
              "name":"siedziba firmy ",
              "status":"UNDELIVERED",
              "address":"street 12",
@@ -111,7 +108,7 @@ export class AppComponent {
              "deliveryTime":"13:30"
           },
           { 
-             "lunchSpotId":106921,
+             "id":106921,
              "name":"company 13, kuchnia",
              "status":"UNDELIVERED",
              "address":"street 13",
@@ -119,7 +116,7 @@ export class AppComponent {
              "deliveryTime":"12:30"
           },
           { 
-             "lunchSpotId":106946,
+             "id":106946,
              "name":"company 14, kuchnia",
              "status":"UNDELIVERED",
              "address":"street 14",
@@ -127,7 +124,7 @@ export class AppComponent {
              "deliveryTime":"12:30"
           },
           { 
-             "lunchSpotId":106872,
+             "id":106872,
              "name":"garaż",
              "status":"UNDELIVERED",
              "address":"street 15",
@@ -135,7 +132,7 @@ export class AppComponent {
              "deliveryTime":"12:30"
           },
           { 
-             "lunchSpotId":107032,
+             "id":107032,
              "name":"Kuchnia w firmie company 16, 3 piętro, H2",
              "status":"UNDELIVERED",
              "address":"street 16",
@@ -143,17 +140,15 @@ export class AppComponent {
              "deliveryTime":"13:30"
           },
           { 
-             "lunchSpotId":106961,
+             "id":106961,
              "name":"siedziba firmy ",
              "status":"UNDELIVERED",
              "address":"street 17",
              "company":"company 17",
              "deliveryTime":"13:30"
           }
-       ]
-     }
     ]
     
-     localStorage.setItem("restaurant", JSON.stringify(restaurant));
+     localStorage.setItem("lunchSpots", JSON.stringify(lunchSpots));
   }
 }

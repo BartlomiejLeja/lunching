@@ -1,5 +1,14 @@
-
 <div class="flex-container">
+  <div class ="icon-container" *ngIf = "activeRoute === '/pendingdelivery'" >
+      <mat-icon 
+          id="add"
+          class = 'navigation-icon' 
+
+          (click)="openDialog()"  
+          aria-hidden="false" 
+          aria-label="Example home icon">add</mat-icon>
+  </div>
+
   <div class ="icon-container" >
       <mat-icon 
         id="left"
